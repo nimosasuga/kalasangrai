@@ -23,7 +23,7 @@ foreach ($dirs as $dir) {
 // Copy pre-seeded sqlite database to /tmp if present
 $sqliteSource = __DIR__ . '/../database/database.sqlite';
 $sqliteDest = '/tmp/database.sqlite';
-if (file_exists($sqliteSource) && (!file_exists($sqliteDest) || filesize($sqliteDest) === 0)) {
+if (file_exists($sqliteSource)) {
     @copy($sqliteSource, $sqliteDest);
 }
 
