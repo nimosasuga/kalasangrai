@@ -634,6 +634,37 @@ updated: 2026-10-31
   - `demo-coffee-shop-roastery/.env.example`
 - **Langkah berikutnya**: Melaporkan status koneksi GitHub kepada user dalam gaya Caveman.
 
+### 2026-11-01 — Konfigurasi Vercel Serverless & GitHub Actions CI/CD (Kala Sangrai)
+- **Status**: final
+- **Area**: devops | vercel | ci-cd | github-actions | deployment | sector
+- **Keputusan**:
+  1. **Audit Vercel CI Skill (`vercel/ci@setup`)**:
+     - Menjalankan `npx skills use vercel/ci@setup`.
+     - Mengidentifikasi bahwa spesifikasi resmi skill tersebut didesain khusus untuk repositori monorepo Turborepo JavaScript (`turbo.json` wajib ada). Repositori Kala Sangrai adalah aplikasi monolitik Laravel 12 (PHP 8.4 + Vite + Blade).
+  2. **Konfigurasi Vercel Serverless**:
+     - Membuat `vercel.json` dengan runtime PHP `vercel-php@0.7.2`, mapping routing dinamis ke `api/index.php`, dan static assets routing untuk `/build/*` serta aset statis `/public/*`.
+     - Mengonfigurasi environment variables serverless di `vercel.json`: writable directory `/tmp` untuk config cache, views compiled path, cache store array, session driver cookie, dan SQLite database path `/tmp/database.sqlite`.
+     - Membuat entrypoint serverless `api/index.php` yang secara otomatis menyiapkan direktori cache/storage di `/tmp` dan menyalin `database.sqlite` jika digunakan.
+     - Membuat `.vercelignore` untuk mengabaikan git, vendor, node_modules, tests, dan file non-produksi.
+     - Menambahkan script `"vercel-build": "vite build"` di `package.json`.
+  3. **Workflow GitHub Actions CI & Vercel Deploy (`.github/workflows/ci.yml`)**:
+     - Menyiapkan pipeline CI otomatis: Setup PHP 8.4, Composer install, Node 20, Vite build, dan eksekusi PHPUnit test suite otomatis di branch `main`.
+     - Menyiapkan job continuous deployment Vercel via action `amondnet/vercel-action@v25` menggunakan secret repository `VERCEL_TOKEN`, `VERCEL_ORG_ID`, dan `VERCEL_PROJECT_ID`.
+  4. **Sinkronisasi Git & Pengujian**:
+     - Vite build sukses (`app-CRHHbZkU.css`, `app-BT3D_vsh.js`).
+     - PHPUnit test suite 100% lulus (13 tests, 54 assertions passed).
+     - Commit `06dab6b` (`ci(vercel): add Vercel serverless deployment config and GitHub Actions CI workflow`) berhasil dipush ke `https://github.com/nimosasuga/kalasangrai.git` (branch `main`).
+- **Alasan**: Memenuhi instruksi user: "publis dan konek ke varcel npx skills use vercel/ci@setup".
+- **Dampak**: Repositori Kala Sangrai kini siap dideploy ke Vercel via Git integration langsung (import repository di dashboard Vercel) atau otomatis via GitHub Actions CI/CD.
+- **File/dokumen yang diperbarui**:
+  - `EXPROSA-OBSIDIAN-MEMORY.md`
+  - `demo-coffee-shop-roastery/vercel.json`
+  - `demo-coffee-shop-roastery/api/index.php`
+  - `demo-coffee-shop-roastery/.vercelignore`
+  - `demo-coffee-shop-roastery/package.json`
+  - `demo-coffee-shop-roastery/.github/workflows/ci.yml`
+- **Langkah berikutnya**: Melaporkan instruksi integrasi Vercel kepada user dalam format Caveman Style.
+
 
 
 
