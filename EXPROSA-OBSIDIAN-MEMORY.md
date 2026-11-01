@@ -665,6 +665,44 @@ updated: 2026-10-31
   - `demo-coffee-shop-roastery/.github/workflows/ci.yml`
 - **Langkah berikutnya**: Melaporkan instruksi integrasi Vercel kepada user dalam format Caveman Style.
 
+### 2026-11-02 — Eksekusi Deployment Produksi Live ke Vercel (Kala Sangrai)
+- **Status**: final
+- **Area**: devops | vercel | deployment | serverless | production | sector
+- **Keputusan**:
+  1. **Autentikasi & Inisialisasi Proyek Vercel**:
+     - Mengautentikasi ke akun Vercel `nimosasuga` (`ifiryanto@gmail.com`).
+     - Membuat proyek `kalasangrai` (`prj_hQXCF7LsX7RtKHqXD7Q4Ik0Zx7bU`) dan menautkannya langsung ke repositori GitHub `nimosasuga/kalasangrai`.
+  2. **Resolusi Output Directory & Serverless Storage**:
+     - Memperbarui pengaturan proyek dan `vercel.json` dengan `outputDirectory: "public"`, mengeliminasi error `STATIC_BUILD_NO_OUT_DIR`.
+     - Mengikat `storage_path` Laravel ke `/tmp/storage` di `bootstrap/app.php` saat environment Vercel terdeteksi, memastikan penulisan compiled Blade view, cookies, sessions, dan file cache serverless berjalan tanpa kendala filesystem read-only.
+  3. **Bundling Database SQLite Pre-seeded**:
+     - Menjalankan fresh migration dan seeder ke `database/database.sqlite` (6 Single Origin Coffee Beans, 18 Menu Items).
+     - Menyesuaikan `database/.gitignore` dan `includeFiles` di `vercel.json` agar `database.sqlite` ikut terbundle ke dalam runtime lambda.
+     - Menyalin otomatis database ke `/tmp/database.sqlite` saat invocation serverless.
+  4. **Verifikasi Deployment Live (100% Passed)**:
+     - Deployment ID: `dpl_HCTjkQpSMGLbhS9oFmXGx7P7h8A2`.
+     - Production URL: `https://kalasangrai.vercel.app` (Status: HTTP 200 OK).
+     - Seluruh endpoint terverifikasi berstatus HTTP 200 OK:
+       - `/` (Beranda & Hero Bar Micro-Roastery)
+       - `/menu` (Katalog Menu Kedai & 18 Foto Sajian)
+       - `/biji-kopi` (Koleksi Single Origin & Signature Blend)
+       - `/tentang` (Profil Roastery & Roaster Drum)
+       - `/ruang-suasana` (Galeri Suasana & Bar Experience)
+       - `/wholesale` (Layanan B2B Sangrai Komersial)
+       - `/kontak` (Akses & Peta Kedai)
+       - `/build/manifest.json` (Aset statis Vite CSS & JS)
+- **Alasan**: Memenuhi instruksi user: "/vercel-cli deploy sekarang".
+- **Dampak**: Website Kala Sangrai Coffee Roasters kini aktif secara global di edge network Vercel dengan domain resmi `https://kalasangrai.vercel.app`.
+- **File/dokumen yang diperbarui**:
+  - `EXPROSA-OBSIDIAN-MEMORY.md`
+  - `demo-coffee-shop-roastery/vercel.json`
+  - `demo-coffee-shop-roastery/api/index.php`
+  - `demo-coffee-shop-roastery/bootstrap/app.php`
+  - `demo-coffee-shop-roastery/database/.gitignore`
+  - `demo-coffee-shop-roastery/database/database.sqlite`
+  - `demo-coffee-shop-roastery/routes/web.php`
+- **Langkah berikutnya**: Melaporkan URL deployment dan status live kepada user dalam gaya Caveman.
+
 
 
 
