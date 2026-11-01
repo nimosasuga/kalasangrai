@@ -3,6 +3,10 @@
 // Prepare serverless writable directories in /tmp
 $dirs = [
     '/tmp/views',
+    '/tmp/storage',
+    '/tmp/storage/app',
+    '/tmp/storage/app/public',
+    '/tmp/storage/framework',
     '/tmp/storage/framework/views',
     '/tmp/storage/framework/cache',
     '/tmp/storage/framework/cache/data',
@@ -16,10 +20,10 @@ foreach ($dirs as $dir) {
     }
 }
 
-// Seed / copy sqlite database to /tmp if present
+// Copy pre-seeded sqlite database to /tmp if present
 $sqliteSource = __DIR__ . '/../database/database.sqlite';
 $sqliteDest = '/tmp/database.sqlite';
-if (file_exists($sqliteSource) && !file_exists($sqliteDest)) {
+if (file_exists($sqliteSource) && (!file_exists($sqliteDest) || filesize($sqliteDest) === 0)) {
     @copy($sqliteSource, $sqliteDest);
 }
 
