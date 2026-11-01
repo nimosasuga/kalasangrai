@@ -19,3 +19,24 @@ Route::post('/kontak', [CoffeeShopController::class, 'submitContact'])->name('co
 // Technical SEO Routes
 Route::get('/sitemap.xml', [CoffeeShopController::class, 'sitemap'])->name('sitemap');
 Route::get('/robots.txt', [CoffeeShopController::class, 'robots'])->name('robots');
+
+Route::get('/debug', function () {
+    try {
+        $count = \App\Models\CoffeeBean::count();
+        $dbStatus = 'OK (' . $count . ' beans)';
+    } catch (\Throwable $e) {
+        $dbStatus = 'ERROR: ' . $e->getMessage();
+    }
+
+    return response()->json([
+        'db_status' => $dbStatus,
+        'sqlite_source_exists' => file_exists(base_path('database/database.sqlite')),
+        'tmp_sqlite_exists' => file_exists('/tmp/database.sqlite'),
+        'tmp_sqlite_size' => file_exists('/tmp/database.sqlite') ? filesize('/tmp/database.sqlite') : null,
+        'views_dir_writable' => is_writable('/tmp/views'),
+        'storage_path' => storage_path(),
+        'storage_writable' => is_writable(storage_path()),
+        'db_connection' => config('database.default'),
+        'db_database' => config('database.connections.sqlite.database'),
+    ]);
+});
