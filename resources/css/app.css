@@ -1,0 +1,261 @@
+@import 'tailwindcss';
+
+@source '../views/**/*.blade.php';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-display: 'Bebas Neue', 'Impact', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-script: 'Smooch', cursive;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    
+    /* BrewLab Master Palette Tokens */
+    --color-brew-espresso: #482820;
+    --color-brew-espresso-dark: #351c16;
+    --color-brew-mustard: #febd02;
+    --color-brew-mustard-hover: #e5aa00;
+    --color-brew-oat: #f8f5f1;
+    --color-brew-white: #ffffff;
+    --color-brew-border-dark: rgba(255, 255, 255, 0.15);
+    --color-brew-border-light: rgba(72, 40, 32, 0.12);
+}
+
+html {
+    scroll-behavior: auto;
+    font-family: var(--font-sans);
+    background-color: #482820;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #482820;
+}
+
+/* BrewLab Display Typography Utility */
+.font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+}
+
+.font-script {
+    font-family: var(--font-script);
+}
+
+/* BrewLab Signature Split-Pill Button */
+.btn-brewlab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.btn-brewlab-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 9999px;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 1;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-brewlab-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 9999px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.2s ease, color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.btn-brewlab:hover .btn-brewlab-pill,
+.btn-brewlab:hover .btn-brewlab-circle {
+    transform: scale(1.04);
+}
+
+/* Yellow Accent Variant */
+.btn-brewlab-yellow .btn-brewlab-pill {
+    background-color: #febd02;
+    color: #482820;
+}
+.btn-brewlab-yellow .btn-brewlab-circle {
+    background-color: #febd02;
+    color: #482820;
+}
+.btn-brewlab-yellow:hover .btn-brewlab-pill {
+    background-color: #ffffff;
+    color: #482820;
+}
+.btn-brewlab-yellow:hover .btn-brewlab-circle {
+    background-color: #ffffff;
+    color: #482820;
+}
+
+/* White Variant */
+.btn-brewlab-white .btn-brewlab-pill {
+    background-color: #ffffff;
+    color: #482820;
+}
+.btn-brewlab-white .btn-brewlab-circle {
+    background-color: #ffffff;
+    color: #482820;
+}
+.btn-brewlab-white:hover .btn-brewlab-pill {
+    background-color: #febd02;
+    color: #482820;
+}
+.btn-brewlab-white:hover .btn-brewlab-circle {
+    background-color: #febd02;
+    color: #482820;
+}
+
+/* Dark Espresso Variant */
+.btn-brewlab-dark .btn-brewlab-pill {
+    background-color: #482820;
+    color: #ffffff;
+}
+.btn-brewlab-dark .btn-brewlab-circle {
+    background-color: #482820;
+    color: #ffffff;
+}
+.btn-brewlab-dark:hover .btn-brewlab-pill {
+    background-color: #febd02;
+    color: #482820;
+}
+.btn-brewlab-dark:hover .btn-brewlab-circle {
+    background-color: #febd02;
+    color: #482820;
+}
+
+/* Floating Capsule Header Styling */
+.nav-capsule {
+    background: rgba(72, 40, 32, 0.92);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.45);
+}
+
+/* Motion Graphic Keyframes */
+@keyframes marquee {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes float-slow {
+    0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+    50% { transform: translate3d(0, -14px, 0) rotate(5deg); }
+}
+
+@keyframes float-reverse {
+    0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+    50% { transform: translate3d(0, 14px, 0) rotate(-5deg); }
+}
+
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-marquee {
+    animation: marquee 28s linear infinite;
+}
+
+.animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+    animation: float-reverse 7s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+    animation: spin-slow 16s linear infinite;
+}
+
+/* Crema Wave Section SVG Dividers */
+.wave-divider {
+    display: block;
+    width: 100%;
+    height: auto;
+    line-height: 0;
+}
+
+/* 3D Motion Stage Styles */
+.stage-3d-wrapper {
+    perspective: 1400px;
+    transform-style: preserve-3d;
+}
+
+.stage-3d-card {
+    transform-style: preserve-3d;
+    transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+.tilt-glare {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+}
+
+/* Photo Framing & Framer Motion Hover */
+.brew-photo-frame {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+}
+
+.brew-photo-frame img {
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+
+.brew-photo-frame:hover img {
+    transform: scale(1.06);
+}
+
+/* Hardware Acceleration */
+[data-tilt-3d],
+.stage-3d-card,
+#hero-dish-stage {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Fallbacks for Reduced Motion & No-WebGL */
+.reduced-motion [data-tilt-3d],
+.reduced-motion #hero-dish-stage,
+.no-webgl #hero-dish-stage,
+.no-webgl [data-tilt-3d],
+.reduced-motion .animate-marquee,
+.reduced-motion .animate-float-slow,
+.reduced-motion .animate-float-reverse,
+.reduced-motion .animate-spin-slow {
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+}
+
+.reduced-motion #hero-particle-canvas,
+.no-webgl #hero-particle-canvas {
+    display: none !important;
+}
