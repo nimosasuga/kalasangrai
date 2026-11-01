@@ -703,6 +703,33 @@ updated: 2026-10-31
   - `demo-coffee-shop-roastery/routes/web.php`
 - **Langkah berikutnya**: Melaporkan URL deployment dan status live kepada user dalam gaya Caveman.
 
+### 2026-11-02 — Perbaikan Tampilan Berantakan (Mixed Content Asset Blocking Fix)
+- **Status**: final
+- **Area**: UI | frontend | security | devops | vercel | bugfix | sector
+- **Keputusan**:
+  1. **Investigasi Akar Masalah (Root Cause Analysis)**:
+     - Tampilan berantakan menyerupai web 1980an disebabkan oleh browser yang memblokir file CSS (`app-BgtPCFot.css`) dan JavaScript (`app-BT3D_vsh.js`) akibat **Mixed Content Blocking**.
+     - Halaman diakses melalui protokol aman `https://kalasangrai.vercel.app`, namun helper `@vite` Laravel mengenerate tautan aset menggunakan skema `http://` karena Laravel di balik reverse proxy Vercel tidak mempercayai proxy SSL secara default.
+  2. **Resolusi Teknis Tiga Lapis**:
+     - **Paksa Skema HTTPS**: Menambahkan `URL::forceScheme('https')` di `app/Providers/AppServiceProvider.php` saat environment Vercel, produksi, atau request proto HTTPS aktif.
+     - **Trust All Proxies**: Menambahkan `$middleware->trustProxies(at: '*')` di `bootstrap/app.php` agar header `X-Forwarded-Proto: https` dari edge network Vercel terbaca secara tepat oleh Laravel.
+     - **Content Security Policy**: Menambahkan `<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">` di `resources/views/layouts/app.blade.php` sebagai pengaman di level browser untuk meng-upgrade seluruh request HTTP ke HTTPS.
+     - **Project Env Synchronization**: Menambahkan variabel lingkungan `APP_URL=https://kalasangrai.vercel.app` pada konfigurasi proyek Vercel.
+  3. **Verifikasi Live**:
+     - Deployment ID: `dpl_H9dMxBeBFjoA6xZ8vjsj6W5NJzYj`.
+     - Output tag HTML pada `https://kalasangrai.vercel.app` kini 100% menggunakan `https://`:
+       - `<link rel="stylesheet" href="https://kalasangrai.vercel.app/build/assets/app-BgtPCFot.css" />` (Status: HTTP 200 OK, 75 kB).
+       - `<script type="module" src="https://kalasangrai.vercel.app/build/assets/app-BT3D_vsh.js"></script>` (Status: HTTP 200 OK, 640 kB).
+     - Seluruh styling Tailwind CSS, tipografi BrewLab (Bebas Neue, Plus Jakarta Sans, Smooch), Alpine.js micro-interactions, dan gambar kini ter-render secara utuh dan rapi.
+- **Alasan**: Memenuhi instruksi user: "hasilnya berantakan hanya icon seperti web 1980an".
+- **Dampak**: Masalah mixed content terselesaikan 100%. Desain visual web tampil presisi, elegan, modern, dan sesuai standar editorial BrewLab.
+- **File/dokumen yang diperbarui**:
+  - `EXPROSA-OBSIDIAN-MEMORY.md`
+  - `demo-coffee-shop-roastery/app/Providers/AppServiceProvider.php`
+  - `demo-coffee-shop-roastery/bootstrap/app.php`
+  - `demo-coffee-shop-roastery/resources/views/layouts/app.blade.php`
+- **Langkah berikutnya**: Melaporkan perbaikan tampilan kepada user dalam gaya Caveman.
+
 
 
 
