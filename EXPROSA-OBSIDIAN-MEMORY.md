@@ -529,6 +529,29 @@ updated: 2026-10-31
   - `demo-coffee-shop-roastery/resources/views/pages/menu.blade.php`
 - **Langkah berikutnya**: Melaporkan hasil penambahan foto menu kepada user.
 
+### 2026-11-01 — Inisialisasi Git & Publikasi Repositori GitHub (Kala Sangrai)
+- **Status**: final
+- **Area**: git | vcs | github | deployment | sector
+- **Keputusan**:
+  1. **Inisialisasi Git Repositori**:
+     - Menginisialisasi repositori Git lokal pada direktori `C:\laragon\www\web-2026-6-sektor\demo-coffee-shop-roastery` dengan branch utama `main`.
+     - Menghubungkan remote origin ke URL target user: `https://github.com/nimosasuga/kalasangrai.git`.
+  2. **Proteksi File & Konfigurasi Lingkungan**:
+     - Memastikan file rahasia `.env`, kredensial database, cache, `vendor/`, dan `node_modules/` tetap terlindungi di dalam `.gitignore` sesuai SOP keamanan EXPROSA.
+     - Memperbarui `.env.example` dengan seluruh variabel konfigurasi identitas bisnis (`SITE_*`).
+  3. **Dokumentasi Proyek**:
+     - Menulis ulang `README.md` komprehensif mencakup fitur-fitur signature roastery, tech stack, panduan instalasi lokal, migrasi database, dan pengujian PHPUnit.
+  4. **Commit & Push**:
+     - Melakukan commit awal 89 file proyek: `feat(sector-04): initialize Kala Sangrai Coffee Roasters website starter`.
+     - Mengeksekusi `git push -u origin main` yang sukses terkirim ke `https://github.com/nimosasuga/kalasangrai.git`.
+- **Alasan**: Memenuhi instruksi user: "sekarang koneksikan ke github https://github.com/nimosasuga/kalasangrai.git".
+- **Dampak**: Repositori GitHub resmi untuk Kala Sangrai Coffee Roasters kini aktif, terstruktur rapi, siap untuk kolaborasi maupun deployment CI/CD.
+- **File/dokumen yang diperbarui**:
+  - `EXPROSA-OBSIDIAN-MEMORY.md`
+  - `demo-coffee-shop-roastery/README.md`
+  - `demo-coffee-shop-roastery/.env.example`
+- **Langkah berikutnya**: Melaporkan status koneksi GitHub kepada user dalam gaya Caveman.
+
 ### 2026-11-01 — Perbaikan Missing Images & Implementasi Distinct Effects/Animations Tiap Halaman
 - **Status**: final
 - **Area**: UI | frontend | motion | animation | database | bugfix | sector
@@ -587,6 +610,29 @@ updated: 2026-10-31
   - `demo-coffee-shop-roastery/database/seeders/CoffeeShopSeeder.php`
   - `demo-coffee-shop-roastery/resources/views/pages/menu.blade.php`
 - **Langkah berikutnya**: Melaporkan hasil penambahan foto menu kepada user.
+
+### 2026-11-01 — Inisialisasi Git & Publikasi Repositori GitHub (Kala Sangrai)
+- **Status**: final
+- **Area**: git | vcs | github | deployment | sector
+- **Keputusan**:
+  1. **Inisialisasi Git Repositori**:
+     - Menginisialisasi repositori Git lokal pada direktori `C:\laragon\www\web-2026-6-sektor\demo-coffee-shop-roastery` dengan branch utama `main`.
+     - Menghubungkan remote origin ke URL target user: `https://github.com/nimosasuga/kalasangrai.git`.
+  2. **Proteksi File & Konfigurasi Lingkungan**:
+     - Memastikan file rahasia `.env`, kredensial database, cache, `vendor/`, dan `node_modules/` tetap terlindungi di dalam `.gitignore` sesuai SOP keamanan EXPROSA.
+     - Memperbarui `.env.example` dengan seluruh variabel konfigurasi identitas bisnis (`SITE_*`).
+  3. **Dokumentasi Proyek**:
+     - Menulis ulang `README.md` komprehensif mencakup fitur-fitur signature roastery, tech stack, panduan instalasi lokal, migrasi database, dan pengujian PHPUnit.
+  4. **Commit & Push**:
+     - Melakukan commit awal 89 file proyek: `feat(sector-04): initialize Kala Sangrai Coffee Roasters website starter`.
+     - Mengeksekusi `git push -u origin main` yang sukses terkirim ke `https://github.com/nimosasuga/kalasangrai.git`.
+- **Alasan**: Memenuhi instruksi user: "sekarang koneksikan ke github https://github.com/nimosasuga/kalasangrai.git".
+- **Dampak**: Repositori GitHub resmi untuk Kala Sangrai Coffee Roasters kini aktif, terstruktur rapi, siap untuk kolaborasi maupun deployment CI/CD.
+- **File/dokumen yang diperbarui**:
+  - `EXPROSA-OBSIDIAN-MEMORY.md`
+  - `demo-coffee-shop-roastery/README.md`
+  - `demo-coffee-shop-roastery/.env.example`
+- **Langkah berikutnya**: Melaporkan status koneksi GitHub kepada user dalam gaya Caveman.
 
 
 
