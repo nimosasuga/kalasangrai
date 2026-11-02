@@ -109,12 +109,18 @@
 
                         <div class="space-y-3 text-xs font-sans">
                             <span class="text-[10px] font-mono uppercase tracking-widest text-[#482820] font-bold">Kontak Cepat</span>
-                            <p>
-                                <span class="text-[#78716c] block text-[11px]">WhatsApp Kedai:</span>
-                                <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', config('site.whatsapp')) }}" class="text-[#482820] font-bold hover:underline font-mono text-sm">
+                            <div>
+                                <span class="text-[#78716c] block text-[11px]">WhatsApp Bar & Reservasi:</span>
+                                <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', config('site.whatsapp')) }}" class="text-[#482820] font-bold hover:underline font-mono text-sm block">
                                     +{{ config('site.whatsapp') }}
                                 </a>
-                            </p>
+                                @if(config('site.whatsapp_alt'))
+                                    <span class="text-[#78716c] block text-[11px] mt-1.5">Hotline Alternatif / Roastery:</span>
+                                    <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', config('site.whatsapp_alt')) }}" class="text-[#482820] font-bold hover:underline font-mono text-sm block">
+                                        +{{ config('site.whatsapp_alt') }}
+                                    </a>
+                                @endif
+                            </div>
                             <p>
                                 <span class="text-[#78716c] block text-[11px]">Email Resmi:</span>
                                 <a href="mailto:{{ config('site.email') }}" class="text-[#482820] hover:text-[#FEBD02] font-mono">

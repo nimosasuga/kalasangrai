@@ -1,5 +1,5 @@
 @php
-    $phone = preg_replace('/[^0-9]/', '', config('site.whatsapp', '6281398765432'));
+    $phone = preg_replace('/[^0-9]/', '', config('site.whatsapp', '6285133331476'));
     $msg = rawurlencode(config('site.whatsapp_message', 'Halo Kala Sangrai, saya ingin berkunjung / tanya biji kopi / kemitraan wholesale.'));
     $waLink = "https://wa.me/{$phone}?text={$msg}";
 @endphp
