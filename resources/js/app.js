@@ -47,18 +47,20 @@ function detectCapabilities() {
     }
 }
 
-// 1. LENIS SMOOTH SCROLLING (Desktop pointer only, skipped on reduced-motion or mobile)
+// 1. LENIS SMOOTH SCROLLING (Adaptive Desktop & Mobile)
 let lenis = null;
 function initLenis() {
-    if (capabilities.reducedMotion || capabilities.isMobile) return;
+    if (capabilities.reducedMotion) return;
 
     try {
         lenis = new Lenis({
-            duration: 1.1,
+            duration: capabilities.isMobile ? 0.95 : 1.15,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             orientation: 'vertical',
             smoothWheel: true,
             wheelMultiplier: 1.0,
+            touchMultiplier: 1.15,
+            syncTouch: true,
         });
 
         lenis.on('scroll', ScrollTrigger.update);
@@ -73,7 +75,7 @@ function initLenis() {
     }
 }
 
-// 2. CANVAS CLEAN STEAM & AROMA VAPOR PARTICLES (Adaptive Count & Viewport Pausing)
+// 2. CANVAS CLEAN STEAM & AROMA VAPOR PARTICLES (Adaptive Mobile & Desktop)
 let particleAnimId = null;
 let isParticleVisible = false;
 
@@ -81,8 +83,8 @@ function initHeroParticles() {
     const canvas = document.getElementById('hero-particle-canvas');
     if (!canvas) return;
 
-    // Mobile or reduced motion: completely disable particle loop to conserve battery & GPU
-    if (capabilities.reducedMotion || capabilities.isMobile) {
+    // Reduced motion: completely disable particle loop to respect preferences
+    if (capabilities.reducedMotion) {
         canvas.style.display = 'none';
         return;
     }
@@ -100,18 +102,18 @@ function initHeroParticles() {
     });
 
     const particles = [];
-    // Tablet: 10 delicate aroma particles. Desktop: 24 gentle steam dust particles.
-    const count = capabilities.isTablet ? 10 : 24;
+    // Mobile: 8 gentle aroma vapor particles. Tablet: 12. Desktop: 24.
+    const count = capabilities.isMobile ? 8 : (capabilities.isTablet ? 12 : 24);
 
     for (let i = 0; i < count; i++) {
         particles.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            radius: Math.random() * 2.2 + 0.8,
-            speedY: Math.random() * 0.4 + 0.12,
-            speedX: (Math.random() - 0.5) * 0.2,
-            alpha: Math.random() * 0.14 + 0.04,
-            color: Math.random() > 0.5 ? '158, 71, 42' : '120, 113, 108',
+            radius: Math.random() * (capabilities.isMobile ? 1.6 : 2.2) + 0.8,
+            speedY: Math.random() * 0.35 + 0.1,
+            speedX: (Math.random() - 0.5) * 0.16,
+            alpha: Math.random() * 0.14 + 0.05,
+            color: Math.random() > 0.5 ? '254, 189, 2' : '216, 200, 184',
         });
     }
 
@@ -186,18 +188,82 @@ function initHeroParticles() {
     });
 }
 
-// 3. INTERACTIVE 3D HERO STAGE WITH LERP PHYSICS & ADAPTIVE MODES
+// 3. INTERACTIVE 3D HERO STAGE WITH LERP PHYSICS & MOBILE 3D AMBIENT MOTION
 let stageAnimId = null;
 let isStageVisible = false;
 
 function initHeroStage3D() {
     const stageWrapper = document.getElementById('hero-3d-stage-wrapper');
-    const stageCard = document.getElementById('hero-3d-stage-card');
+    const stageCard = document.getElementById('hero-dish-stage') || document.getElementById('hero-3d-stage-card');
     if (!stageWrapper || !stageCard) return;
 
-    // Reduced motion or mobile: static presentation, zero render loops
-    if (capabilities.reducedMotion || capabilities.isMobile) {
+    // Reduced motion: static presentation
+    if (capabilities.reducedMotion) {
         stageCard.style.transform = 'none';
+        return;
+    }
+
+    const layers = stageCard.querySelectorAll('[data-stage-depth]');
+
+    // MOBILE EXPERIENCE: Ambient floating 3D motion + subtle tactile touch reaction
+    if (capabilities.isMobile) {
+        const floatAnim = gsap.to(stageCard, {
+            rotateX: -3.5,
+            rotateY: 4.5,
+            y: -6,
+            duration: 3.5,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+        });
+
+        layers.forEach((layer) => {
+            const depth = parseFloat(layer.getAttribute('data-stage-depth') || '30');
+            gsap.to(layer, {
+                x: 4 * (depth / 40),
+                y: -3 * (depth / 40),
+                duration: 3.5,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut'
+            });
+        });
+
+        // Touch drag interaction on mobile
+        let touchStartX = 0;
+        let touchStartY = 0;
+        stageWrapper.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 0) {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+            }
+        }, { passive: true });
+
+        stageWrapper.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                const diffX = (e.touches[0].clientX - touchStartX) * 0.04;
+                const diffY = (e.touches[0].clientY - touchStartY) * -0.04;
+                gsap.to(stageCard, {
+                    rotateX: Math.max(-6, Math.min(6, diffY)),
+                    rotateY: Math.max(-8, Math.min(8, diffX)),
+                    duration: 0.25,
+                    overwrite: 'auto'
+                });
+            }
+        }, { passive: true });
+
+        stageWrapper.addEventListener('touchend', () => {
+            gsap.to(stageCard, {
+                rotateX: 0,
+                rotateY: 0,
+                duration: 0.6,
+                ease: 'power2.out',
+                onComplete: () => {
+                    floatAnim.restart();
+                }
+            });
+        }, { passive: true });
+
         return;
     }
 
@@ -221,15 +287,15 @@ function initHeroStage3D() {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
 
-            // Maximum tilt 12 deg X, 14 deg Y
+            // Maximum tilt 10 deg X, 12 deg Y
             targetRotX = ((y - centerY) / centerY) * -10;
             targetRotY = ((x - centerX) / centerX) * 12;
 
-            const spotlight = document.getElementById('hero-stage-spotlight');
+            const spotlight = stageWrapper.querySelector('.tilt-glare') || document.getElementById('hero-stage-spotlight');
             if (spotlight) {
                 const pctX = (x / rect.width) * 100;
                 const pctY = (y / rect.height) * 100;
-                spotlight.style.background = `radial-gradient(circle at ${pctX}% ${pctY}%, rgba(255, 255, 255, 0.55) 0%, rgba(158, 71, 42, 0.08) 45%, transparent 75%)`;
+                spotlight.style.background = `radial-gradient(circle at ${pctX}% ${pctY}%, rgba(254, 189, 2, 0.3) 0%, rgba(255, 255, 255, 0.08) 40%, transparent 75%)`;
                 spotlight.style.opacity = '1';
             }
         });
@@ -239,14 +305,12 @@ function initHeroStage3D() {
             targetRotX = 0;
             targetRotY = 0;
 
-            const spotlight = document.getElementById('hero-stage-spotlight');
+            const spotlight = stageWrapper.querySelector('.tilt-glare') || document.getElementById('hero-stage-spotlight');
             if (spotlight) {
                 spotlight.style.opacity = '0';
             }
         });
     }
-
-    const layers = stageCard.querySelectorAll('[data-stage-depth]');
 
     // Smooth 60fps Lerp Render Loop
     function renderStage() {
@@ -317,11 +381,32 @@ function initHeroStage3D() {
     });
 }
 
-// 4. INTERACTIVE 3D TILT ENGINE FOR CARDS (Pointer Only)
+// 4. INTERACTIVE 3D TILT ENGINE FOR CARDS (Pointer & Touch Adaptive)
 function init3DTilt() {
-    if (!capabilities.isPointer || capabilities.reducedMotion) return;
+    if (capabilities.reducedMotion) return;
 
     const tiltElements = document.querySelectorAll('[data-tilt-3d]');
+
+    // Touch devices: micro tactile feedback on touchstart / touchend
+    if (!capabilities.isPointer) {
+        tiltElements.forEach((el) => {
+            el.addEventListener('touchstart', () => {
+                el.style.transition = 'transform 0.15s ease-out';
+                el.style.transform = 'scale(0.982) translateZ(0)';
+            }, { passive: true });
+
+            el.addEventListener('touchend', () => {
+                el.style.transition = 'transform 0.35s cubic-bezier(0.23, 1, 0.32, 1)';
+                el.style.transform = 'scale(1) translateZ(0)';
+            }, { passive: true });
+
+            el.addEventListener('touchcancel', () => {
+                el.style.transition = 'transform 0.35s cubic-bezier(0.23, 1, 0.32, 1)';
+                el.style.transform = 'scale(1) translateZ(0)';
+            }, { passive: true });
+        });
+        return;
+    }
 
     tiltElements.forEach((el) => {
         const maxAngle = parseFloat(el.getAttribute('data-tilt-max') || '8');
@@ -462,22 +547,21 @@ function initScrollAnimations() {
         });
     });
 
-    // Parallax background or images (desktop & tablet only)
-    if (!capabilities.isMobile) {
-        document.querySelectorAll('[data-parallax]').forEach((el) => {
-            const speed = parseFloat(el.getAttribute('data-parallax') || '0.12');
-            gsap.to(el, {
-                scrollTrigger: {
-                    trigger: el,
-                    start: 'top bottom',
-                    end: 'bottom top',
-                    scrub: true,
-                },
-                y: () => speed * 60,
-                ease: 'none',
-            });
+    // Parallax background or images (adaptive for desktop & mobile)
+    document.querySelectorAll('[data-parallax]').forEach((el) => {
+        const speed = parseFloat(el.getAttribute('data-parallax') || '0.12');
+        const travel = capabilities.isMobile ? speed * 25 : speed * 60;
+        gsap.to(el, {
+            scrollTrigger: {
+                trigger: el,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            },
+            y: () => travel,
+            ease: 'none',
         });
-    }
+    });
 
     // Refresh triggers once all images are ready
     window.addEventListener('load', () => {
@@ -486,6 +570,18 @@ function initScrollAnimations() {
     setTimeout(() => {
         ScrollTrigger.refresh();
     }, 400);
+
+    // Orientation change & dynamic resize
+    window.addEventListener('resize', () => {
+        detectCapabilities();
+        ScrollTrigger.refresh();
+    });
+    window.addEventListener('orientationchange', () => {
+        setTimeout(() => {
+            detectCapabilities();
+            ScrollTrigger.refresh();
+        }, 200);
+    });
 }
 
 // Start Alpine

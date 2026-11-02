@@ -69,7 +69,7 @@
             </a>
             <button @click="open = !open" 
                     type="button" 
-                    class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:text-[#febd02] hover:bg-white/20 transition-all focus:outline-none"
+                    class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:text-[#febd02] hover:bg-white/20 transition-all focus:outline-none min-h-[40px]"
                     aria-label="Toggle navigation">
                 <i data-lucide="menu" x-show="!open" class="w-5 h-5"></i>
                 <i data-lucide="x" x-show="open" class="w-5 h-5" style="display: none;"></i>
@@ -90,33 +90,33 @@
          class="lg:hidden max-w-6xl mx-auto mt-2 bg-[#351c16]/95 backdrop-blur-2xl border border-white/15 rounded-[32px] p-6 space-y-4 shadow-2xl"
          style="display: none;">
         
-        <nav class="flex flex-col space-y-2 text-xs font-mono tracking-wider uppercase font-semibold">
+        <nav class="flex flex-col space-y-1.5 text-xs font-mono tracking-wider uppercase font-semibold">
             <a href="{{ route('home') }}" @click="open = false" 
-               class="px-4 py-2.5 rounded-2xl transition-all {{ request()->routeIs('home') ? 'bg-[#febd02] text-[#482820] font-bold' : 'text-white/80 hover:bg-white/10' }}">
+               class="px-4 py-3 min-h-[44px] flex items-center rounded-2xl transition-all {{ request()->routeIs('home') ? 'bg-[#febd02] text-[#482820] font-bold' : 'text-white/80 hover:bg-white/10' }}">
                 Beranda
             </a>
             <a href="{{ route('menu') }}" @click="open = false" 
-               class="px-4 py-2.5 rounded-2xl transition-all {{ request()->routeIs('menu') ? 'bg-[#febd02] text-[#482820] font-bold' : 'text-white/80 hover:bg-white/10' }}">
+               class="px-4 py-3 min-h-[44px] flex items-center rounded-2xl transition-all {{ request()->routeIs('menu') ? 'bg-[#febd02] text-[#482820] font-bold' : 'text-white/80 hover:bg-white/10' }}">
                 Menu Kedai
             </a>
             <a href="{{ route('beans') }}" @click="open = false" 
-               class="px-4 py-2.5 rounded-2xl transition-all {{ request()->routeIs('beans*') ? 'bg-[#febd02] text-[#482820] font-bold' : 'text-white/80 hover:bg-white/10' }}">
+               class="px-4 py-3 min-h-[44px] flex items-center rounded-2xl transition-all {{ request()->routeIs('beans*') ? 'bg-[#febd02] text-[#482820] font-bold' : 'text-white/80 hover:bg-white/10' }}">
                 Katalog Biji Kopi
             </a>
             <a href="{{ route('about') }}" @click="open = false" 
-               class="px-4 py-2.5 rounded-2xl transition-all {{ request()->routeIs('about') ? 'bg-[#febd02] text-[#482820] font-bold' : 'text-white/80 hover:bg-white/10' }}">
+               class="px-4 py-3 min-h-[44px] flex items-center rounded-2xl transition-all {{ request()->routeIs('about') ? 'bg-[#febd02] text-[#482820] font-bold' : 'text-white/80 hover:bg-white/10' }}">
                 Tentang Roastery
             </a>
             <a href="{{ route('atmosphere') }}" @click="open = false" 
-               class="px-4 py-2.5 rounded-2xl transition-all {{ request()->routeIs('atmosphere') ? 'bg-[#febd02] text-[#482820] font-bold' : 'text-white/80 hover:bg-white/10' }}">
+               class="px-4 py-3 min-h-[44px] flex items-center rounded-2xl transition-all {{ request()->routeIs('atmosphere') ? 'bg-[#febd02] text-[#482820] font-bold' : 'text-white/80 hover:bg-white/10' }}">
                 Ruang & Bar
             </a>
             <a href="{{ route('wholesale') }}" @click="open = false" 
-               class="px-4 py-2.5 rounded-2xl transition-all {{ request()->routeIs('wholesale*') ? 'bg-[#febd02] text-[#482820] font-bold' : 'text-white/80 hover:bg-white/10' }}">
+               class="px-4 py-3 min-h-[44px] flex items-center rounded-2xl transition-all {{ request()->routeIs('wholesale*') ? 'bg-[#febd02] text-[#482820] font-bold' : 'text-white/80 hover:bg-white/10' }}">
                 Wholesale B2B
             </a>
             <a href="{{ route('contact') }}" @click="open = false" 
-               class="px-4 py-2.5 rounded-2xl transition-all {{ request()->routeIs('contact') ? 'bg-[#febd02] text-[#482820] font-bold' : 'text-white/80 hover:bg-white/10' }}">
+               class="px-4 py-3 min-h-[44px] flex items-center rounded-2xl transition-all {{ request()->routeIs('contact') ? 'bg-[#febd02] text-[#482820] font-bold' : 'text-white/80 hover:bg-white/10' }}">
                 Lokasi & Kontak
             </a>
         </nav>

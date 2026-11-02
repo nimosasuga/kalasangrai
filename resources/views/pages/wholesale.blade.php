@@ -18,7 +18,7 @@
                         Commercial Roasting
                     </span>
                 </div>
-                <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl uppercase tracking-wider text-[#FFFFFF] leading-[0.95]">
+                <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl uppercase tracking-wider text-[#FFFFFF] leading-tight sm:leading-[0.95]">
                     Pasokan roasted beans konsisten untuk bisnis Anda.
                 </h1>
                 <p class="text-sm text-[#D8C8B8] leading-relaxed font-sans">
@@ -39,35 +39,35 @@
     <section class="py-16 sm:py-20 bg-[#F8F5F1] text-[#482820]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8" data-reveal="stagger">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8" data-reveal="stagger">
                 
-                <div class="bg-white border border-[#482820]/10 rounded-[32px] p-6 space-y-3 shadow-sm hover:shadow-xl transition-all duration-300" data-tilt-3d>
-                    <span class="font-display text-2xl text-[#482820] block">01 / PASOKAN RUTIN</span>
-                    <h3 class="font-display text-xl uppercase tracking-wider text-[#482820]">Mulai 5 kg per Pesanan</h3>
+                <div class="bg-white border border-[#482820]/10 rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 space-y-3 shadow-sm hover:shadow-xl transition-all duration-300" data-tilt-3d>
+                    <span class="font-display text-xl sm:text-2xl text-[#482820] block">01 / PASOKAN RUTIN</span>
+                    <h3 class="font-display text-lg sm:text-xl uppercase tracking-wider text-[#482820]">Mulai 5 kg per Pesanan</h3>
                     <p class="text-xs text-[#78716c] leading-relaxed font-sans">
                         Pengiriman terjadwal mingguan atau dua mingguan dengan jaminan kesegaran sangrai (*fresh roast guarantee*) maksimal 5 hari setelah proses roasting.
                     </p>
                 </div>
 
-                <div class="bg-white border border-[#482820]/10 rounded-[32px] p-6 space-y-3 shadow-sm hover:shadow-xl transition-all duration-300" data-tilt-3d>
-                    <span class="font-display text-2xl text-[#482820] block">02 / CUSTOM BLEND</span>
-                    <h3 class="font-display text-xl uppercase tracking-wider text-[#482820]">Peracikan Signature Blend</h3>
+                <div class="bg-white border border-[#482820]/10 rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 space-y-3 shadow-sm hover:shadow-xl transition-all duration-300" data-tilt-3d>
+                    <span class="font-display text-xl sm:text-2xl text-[#482820] block">02 / CUSTOM BLEND</span>
+                    <h3 class="font-display text-lg sm:text-xl uppercase tracking-wider text-[#482820]">Peracikan Signature Blend</h3>
                     <p class="text-xs text-[#78716c] leading-relaxed font-sans">
                         Kami membantu meracik proporsi arabika & robusta specialty yang sesuai dengan profil target pelanggan Anda dan karakter susu yang digunakan di kafe Anda.
                     </p>
                 </div>
 
-                <div class="bg-white border border-[#482820]/10 rounded-[32px] p-6 space-y-3 shadow-sm hover:shadow-xl transition-all duration-300" data-tilt-3d>
-                    <span class="font-display text-2xl text-[#482820] block">03 / KALIBRASI MESIN</span>
-                    <h3 class="font-display text-xl uppercase tracking-wider text-[#482820]">Audit Mesin & Grinder</h3>
+                <div class="bg-white border border-[#482820]/10 rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 space-y-3 shadow-sm hover:shadow-xl transition-all duration-300" data-tilt-3d>
+                    <span class="font-display text-xl sm:text-2xl text-[#482820] block">03 / KALIBRASI MESIN</span>
+                    <h3 class="font-display text-lg sm:text-xl uppercase tracking-wider text-[#482820]">Audit Mesin & Grinder</h3>
                     <p class="text-xs text-[#78716c] leading-relaxed font-sans">
                         Konsultasi pemilihan mesin komersial (La Marzocco, Nuova Simonelli, Slayer, Mahlkönig) dan penyesuaian tekanan pompa serta suhu boiler.
                     </p>
                 </div>
 
-                <div class="bg-white border border-[#482820]/10 rounded-[32px] p-6 space-y-3 shadow-sm hover:shadow-xl transition-all duration-300" data-tilt-3d>
-                    <span class="font-display text-2xl text-[#482820] block">04 / PELATIHAN BARISTA</span>
-                    <h3 class="font-display text-xl uppercase tracking-wider text-[#482820]">Standardisasi Seduhan</h3>
+                <div class="bg-white border border-[#482820]/10 rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 space-y-3 shadow-sm hover:shadow-xl transition-all duration-300" data-tilt-3d>
+                    <span class="font-display text-xl sm:text-2xl text-[#482820] block">04 / PELATIHAN BARISTA</span>
+                    <h3 class="font-display text-lg sm:text-xl uppercase tracking-wider text-[#482820]">Standardisasi Seduhan</h3>
                     <p class="text-xs text-[#78716c] leading-relaxed font-sans">
                         Sesi cupping dan pelatihan teknik dial-in espresso untuk tim barista Anda agar konsistensi rasa tetap terjaga di setiap shift kerja.
                     </p>
@@ -109,10 +109,10 @@
                 <div class="lg:col-span-5 space-y-8">
                     
                     <div class="space-y-3">
-                        <span class="font-script text-3xl text-[#482820] block -rotate-2">
+                        <span class="font-script text-2xl sm:text-3xl text-[#482820] block -rotate-2">
                             Skema Volume & Diskon
                         </span>
-                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl uppercase tracking-wider text-[#482820] leading-[0.95]">
+                        <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl uppercase tracking-wider text-[#482820] leading-tight sm:leading-[0.95]">
                             Kalkulator pasokan berjenjang untuk mitra.
                         </h2>
                         <p class="text-xs sm:text-sm text-[#78716c] leading-relaxed font-sans">
@@ -121,15 +121,15 @@
                     </div>
 
                     <!-- Interactive Slider Box -->
-                    <div class="bg-[#482820] text-white p-6 sm:p-7 rounded-[36px] space-y-5 shadow-xl border border-[#482820]/15">
+                    <div class="bg-[#482820] text-white p-5 sm:p-7 rounded-[32px] sm:rounded-[36px] space-y-4 sm:space-y-5 shadow-xl border border-[#482820]/15">
                         <div class="flex items-center justify-between border-b border-white/10 pb-4">
                             <div>
                                 <span class="text-[10px] font-mono text-[#FEBD02] uppercase tracking-wider font-bold">Kapasitas Bulanan:</span>
-                                <h3 class="font-display text-3xl text-white" x-text="volumeKg + ' KG / BULAN'"></h3>
+                                <h3 class="font-display text-2xl sm:text-3xl text-white" x-text="volumeKg + ' KG / BULAN'"></h3>
                             </div>
                             <div class="text-right">
                                 <span class="text-[10px] font-mono text-[#D8C8B8] uppercase">Estimasi Diskon</span>
-                                <span class="font-display text-3xl text-[#FEBD02] block leading-none" x-text="discountPct + '%'"></span>
+                                <span class="font-display text-2xl sm:text-3xl text-[#FEBD02] block leading-none" x-text="discountPct + '%'"></span>
                             </div>
                         </div>
 
@@ -206,7 +206,7 @@
                 <!-- Right: Inquiry Form (7 Cols) -->
                 <div class="lg:col-span-7">
                     
-                    <div class="bg-[#F8F5F1] border border-[#482820]/10 rounded-[40px] p-8 sm:p-10 space-y-6 shadow-xl">
+                    <div class="bg-[#F8F5F1] border border-[#482820]/10 rounded-[32px] sm:rounded-[40px] p-5 sm:p-10 space-y-6 shadow-xl">
                         
                         <div class="border-b border-[#482820]/10 pb-4">
                             <h3 class="font-display text-2xl sm:text-3xl uppercase tracking-wider text-[#482820]">

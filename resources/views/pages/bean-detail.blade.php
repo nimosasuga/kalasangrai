@@ -80,15 +80,15 @@
                                 {{ $bean->origin }}
                             </span>
                         </div>
-                        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl uppercase tracking-wider text-[#482820] leading-[0.95]">
+                        <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl uppercase tracking-wider text-[#482820] leading-tight sm:leading-[0.95]">
                             {{ $bean->name }}
                         </h1>
                     </div>
 
                     <!-- Tasting Notes Banner -->
-                    <div class="bg-[#482820] text-[#F8F5F1] rounded-[28px] p-6 shadow-md border border-white/10 space-y-1">
+                    <div class="bg-[#482820] text-[#F8F5F1] rounded-[24px] sm:rounded-[28px] p-5 sm:p-6 shadow-md border border-white/10 space-y-1">
                         <span class="text-[10px] font-mono text-[#FEBD02] uppercase block tracking-widest font-bold">Catatan Rasa Terdeteksi (Cupping Notes):</span>
-                        <p class="font-display text-3xl sm:text-4xl uppercase tracking-wider text-[#FFFFFF]">
+                        <p class="font-display text-2xl sm:text-3xl lg:text-4xl uppercase tracking-wider text-[#FFFFFF] leading-snug">
                             {{ $bean->tasting_notes }}
                         </p>
                     </div>
@@ -191,22 +191,22 @@
                     @endif
 
                     <!-- Purchase Options & Direct WhatsApp Order Box (BrewLab 36px Rounded Container) -->
-                    <div class="bg-white border border-[#482820]/10 rounded-[36px] p-6 sm:p-8 space-y-6 shadow-xl">
+                    <div class="bg-white border border-[#482820]/10 rounded-[32px] sm:rounded-[36px] p-5 sm:p-8 space-y-5 sm:space-y-6 shadow-xl">
                         
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#482820]/10 pb-4">
-                            <div>
+                            <div class="w-full sm:w-auto">
                                 <span class="text-xs font-mono text-[#78716c] uppercase block font-bold">Pilih Ukuran Kemasan:</span>
-                                <div class="flex items-center gap-3 mt-2">
+                                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 mt-2">
                                     <button type="button" 
                                             @click="packSize = '200g'"
                                             :class="packSize === '200g' ? 'bg-[#482820] text-white' : 'bg-[#F8F5F1] text-[#482820] border border-[#482820]/10'"
-                                            class="px-5 py-2.5 rounded-full text-xs font-mono uppercase transition-all font-bold">
+                                            class="px-4 sm:px-5 py-2.5 rounded-full text-xs font-mono uppercase transition-all font-bold text-center">
                                         200 Gram ({{ $bean->formatted_price_200g }})
                                     </button>
                                     <button type="button" 
                                             @click="packSize = '1kg'"
                                             :class="packSize === '1kg' ? 'bg-[#482820] text-white' : 'bg-[#F8F5F1] text-[#482820] border border-[#482820]/10'"
-                                            class="px-5 py-2.5 rounded-full text-xs font-mono uppercase transition-all font-bold">
+                                            class="px-4 sm:px-5 py-2.5 rounded-full text-xs font-mono uppercase transition-all font-bold text-center">
                                         1 Kilogram ({{ $bean->formatted_price_1kg }})
                                     </button>
                                 </div>
@@ -215,23 +215,23 @@
 
                         <div>
                             <span class="text-xs font-mono text-[#78716c] uppercase block mb-2 font-bold">Tingkat Gilingan (Grind Size):</span>
-                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs font-mono">
-                                <label class="rounded-2xl p-3 flex items-center gap-2 cursor-pointer transition-all border"
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5 text-xs font-mono">
+                                <label class="rounded-2xl p-2.5 sm:p-3 flex items-center gap-2 cursor-pointer transition-all border"
                                        :class="grind === 'Biji Utuh (Whole Bean)' ? 'border-[#482820] bg-[#482820] text-white font-bold' : 'border-[#482820]/10 bg-[#F8F5F1] text-[#482820]'">
                                     <input type="radio" x-model="grind" value="Biji Utuh (Whole Bean)" class="hidden">
                                     <span class="text-[11px]">Biji Utuh</span>
                                 </label>
-                                <label class="rounded-2xl p-3 flex items-center gap-2 cursor-pointer transition-all border"
+                                <label class="rounded-2xl p-2.5 sm:p-3 flex items-center gap-2 cursor-pointer transition-all border"
                                        :class="grind === 'Giling Halus (Espresso)' ? 'border-[#482820] bg-[#482820] text-white font-bold' : 'border-[#482820]/10 bg-[#F8F5F1] text-[#482820]'">
                                     <input type="radio" x-model="grind" value="Giling Halus (Espresso)" class="hidden">
                                     <span class="text-[11px]">Halus (Espresso)</span>
                                 </label>
-                                <label class="rounded-2xl p-3 flex items-center gap-2 cursor-pointer transition-all border"
+                                <label class="rounded-2xl p-2.5 sm:p-3 flex items-center gap-2 cursor-pointer transition-all border"
                                        :class="grind === 'Giling Sedang (V60/Aeropress)' ? 'border-[#482820] bg-[#482820] text-white font-bold' : 'border-[#482820]/10 bg-[#F8F5F1] text-[#482820]'">
                                     <input type="radio" x-model="grind" value="Giling Sedang (V60/Aeropress)" class="hidden">
                                     <span class="text-[11px]">Sedang (Filter)</span>
                                 </label>
-                                <label class="rounded-2xl p-3 flex items-center gap-2 cursor-pointer transition-all border"
+                                <label class="rounded-2xl p-2.5 sm:p-3 flex items-center gap-2 cursor-pointer transition-all border"
                                        :class="grind === 'Giling Kasar (Cold Brew/Press)' ? 'border-[#482820] bg-[#482820] text-white font-bold' : 'border-[#482820]/10 bg-[#F8F5F1] text-[#482820]'">
                                     <input type="radio" x-model="grind" value="Giling Kasar (Cold Brew/Press)" class="hidden">
                                     <span class="text-[11px]">Kasar (Cold Brew)</span>
@@ -239,7 +239,7 @@
                             </div>
                         </div>
 
-                        <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#482820]/10">
+                        <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-[#482820]/10">
                             <div>
                                 <span class="text-[10px] font-mono text-[#78716c] uppercase block">Status Ketersediaan</span>
                                 <span class="text-xs text-emerald-700 font-mono font-bold flex items-center gap-1.5 mt-0.5">
@@ -251,8 +251,8 @@
                                target="_blank" 
                                rel="noopener noreferrer"
                                data-magnetic
-                               class="btn-brewlab btn-brewlab-yellow w-full sm:w-auto text-xs">
-                                <span class="btn-brewlab-pill">Pesan Langsung via WhatsApp</span>
+                               class="btn-brewlab btn-brewlab-yellow w-full sm:w-auto text-xs justify-between sm:justify-start">
+                                <span class="btn-brewlab-pill flex-1 sm:flex-initial text-center">Pesan Langsung via WhatsApp</span>
                                 <span class="btn-brewlab-circle">
                                     <i data-lucide="message-circle" class="w-4 h-4"></i>
                                 </span>

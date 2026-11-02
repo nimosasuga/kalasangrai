@@ -27,11 +27,27 @@ html {
     background-color: #482820;
     color: #ffffff;
     overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
     overflow-x: hidden;
     background-color: #482820;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Touch & Mobile Scroll Utilities */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Smooth Touch Momentum */
+.overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
 }
 
 /* BrewLab Display Typography Utility */
@@ -52,6 +68,7 @@ body {
     text-decoration: none;
     cursor: pointer;
     user-select: none;
+    touch-action: manipulation;
 }
 
 .btn-brewlab-pill {
@@ -68,6 +85,7 @@ body {
     position: relative;
     overflow: hidden;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
 }
 
 .btn-brewlab-circle {
@@ -81,6 +99,18 @@ body {
     overflow: hidden;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.2s ease, color 0.2s ease;
     flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+    .btn-brewlab-pill {
+        padding: 11px 20px;
+        font-size: 0.95rem;
+        letter-spacing: 0.03em;
+    }
+    .btn-brewlab-circle {
+        width: 42px;
+        height: 42px;
+    }
 }
 
 .btn-brewlab:hover .btn-brewlab-pill,

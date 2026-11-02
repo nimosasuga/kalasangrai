@@ -93,12 +93,12 @@
                     </p>
                     <p>
                         <span class="text-[#D8C8B8] block text-[10px] uppercase font-mono">WhatsApp Bar & Biji Kopi:</span>
-                        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', config('site.whatsapp')) }}" class="text-[#FEBD02] font-bold hover:underline font-mono text-sm">
+                        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', config('site.whatsapp')) }}" class="text-[#FEBD02] font-bold hover:underline font-mono text-sm whitespace-nowrap inline-block">
                             +{{ config('site.whatsapp') }}
                         </a>
                         @if(config('site.whatsapp_alt'))
                             <span class="text-[#a89888] text-[11px] mx-1">/</span>
-                            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', config('site.whatsapp_alt')) }}" class="text-[#FEBD02] font-bold hover:underline font-mono text-sm">
+                            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', config('site.whatsapp_alt')) }}" class="text-[#FEBD02] font-bold hover:underline font-mono text-sm whitespace-nowrap inline-block">
                                 +{{ config('site.whatsapp_alt') }}
                             </a>
                         @endif

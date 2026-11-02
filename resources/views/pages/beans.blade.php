@@ -59,26 +59,26 @@
 
             </div>
 
-            <!-- Filter Tabs: BrewLab Pill Style with Live Category Badges -->
-            <div class="mt-10 flex flex-wrap items-center gap-2.5 pt-4 border-t border-white/10 text-xs tracking-wider uppercase font-medium font-mono">
+            <!-- Filter Tabs: BrewLab Pill Style with Live Category Badges (Mobile Swipe) -->
+            <div class="mt-8 sm:mt-10 flex overflow-x-auto no-scrollbar sm:flex-wrap items-center gap-2 sm:gap-2.5 pt-4 border-t border-white/10 text-xs tracking-wider uppercase font-medium font-mono pb-1 sm:pb-0">
                 <a href="{{ route('beans') }}" 
-                   class="px-4 py-2 rounded-full transition-all {{ $filter === 'all' ? 'bg-[#FEBD02] text-[#482820] font-bold shadow-md' : 'bg-white/10 text-[#D8C8B8] hover:text-white hover:bg-white/15' }}">
+                   class="px-3.5 sm:px-4 py-2 rounded-full transition-all shrink-0 {{ $filter === 'all' ? 'bg-[#FEBD02] text-[#482820] font-bold shadow-md' : 'bg-white/10 text-[#D8C8B8] hover:text-white hover:bg-white/15' }}">
                     Semua Biji Kopi
                 </a>
                 <a href="{{ route('beans', ['filter' => 'filter']) }}" 
-                   class="px-4 py-2 rounded-full transition-all {{ $filter === 'filter' ? 'bg-[#FEBD02] text-[#482820] font-bold shadow-md' : 'bg-white/10 text-[#D8C8B8] hover:text-white hover:bg-white/15' }}">
+                   class="px-3.5 sm:px-4 py-2 rounded-full transition-all shrink-0 {{ $filter === 'filter' ? 'bg-[#FEBD02] text-[#482820] font-bold shadow-md' : 'bg-white/10 text-[#D8C8B8] hover:text-white hover:bg-white/15' }}">
                     Profil Filter (Manual Brew)
                 </a>
                 <a href="{{ route('beans', ['filter' => 'espresso']) }}" 
-                   class="px-4 py-2 rounded-full transition-all {{ $filter === 'espresso' ? 'bg-[#FEBD02] text-[#482820] font-bold shadow-md' : 'bg-white/10 text-[#D8C8B8] hover:text-white hover:bg-white/15' }}">
+                   class="px-3.5 sm:px-4 py-2 rounded-full transition-all shrink-0 {{ $filter === 'espresso' ? 'bg-[#FEBD02] text-[#482820] font-bold shadow-md' : 'bg-white/10 text-[#D8C8B8] hover:text-white hover:bg-white/15' }}">
                     Profil Espresso & Susu
                 </a>
                 <a href="{{ route('beans', ['filter' => 'natural']) }}" 
-                   class="px-4 py-2 rounded-full transition-all {{ $filter === 'natural' ? 'bg-[#FEBD02] text-[#482820] font-bold shadow-md' : 'bg-white/10 text-[#D8C8B8] hover:text-white hover:bg-white/15' }}">
+                   class="px-3.5 sm:px-4 py-2 rounded-full transition-all shrink-0 {{ $filter === 'natural' ? 'bg-[#FEBD02] text-[#482820] font-bold shadow-md' : 'bg-white/10 text-[#D8C8B8] hover:text-white hover:bg-white/15' }}">
                     Proses Natural / Anaerobik
                 </a>
                 <a href="{{ route('beans', ['filter' => 'washed']) }}" 
-                   class="px-4 py-2 rounded-full transition-all {{ $filter === 'washed' ? 'bg-[#FEBD02] text-[#482820] font-bold shadow-md' : 'bg-white/10 text-[#D8C8B8] hover:text-white hover:bg-white/15' }}">
+                   class="px-3.5 sm:px-4 py-2 rounded-full transition-all shrink-0 {{ $filter === 'washed' ? 'bg-[#FEBD02] text-[#482820] font-bold shadow-md' : 'bg-white/10 text-[#D8C8B8] hover:text-white hover:bg-white/15' }}">
                     Proses Washed / Bersih
                 </a>
             </div>
@@ -96,7 +96,7 @@
                  style="display: none;">
                 
                 <div @click.away="showGrindGuide = false" 
-                     class="max-w-lg w-full bg-white rounded-[36px] p-6 sm:p-8 space-y-6 relative shadow-2xl border border-[#482820]/10 text-[#482820]">
+                     class="max-w-lg w-full max-h-[90vh] overflow-y-auto bg-white rounded-[32px] sm:rounded-[36px] p-5 sm:p-8 space-y-5 sm:space-y-6 relative shadow-2xl border border-[#482820]/10 text-[#482820]">
                     
                     <div class="flex items-start justify-between border-b border-[#482820]/10 pb-4">
                         <div>
@@ -170,22 +170,22 @@
     <section class="py-16 sm:py-20 bg-[#F8F5F1] text-[#482820]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-reveal="stagger">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" data-reveal="stagger">
                 @forelse($beans as $bean)
-                <div class="bg-white border border-[#482820]/10 rounded-[40px] p-6 sm:p-7 flex flex-col justify-between hover:border-[#FEBD02] transition-all duration-300 shadow-sm hover:shadow-2xl group"
+                <div class="bg-white border border-[#482820]/10 rounded-[32px] sm:rounded-[40px] p-5 sm:p-7 flex flex-col justify-between hover:border-[#FEBD02] transition-all duration-300 shadow-sm hover:shadow-2xl group"
                      data-tilt-3d>
                     
                     <div>
                         <!-- Top Bag Visual / Origin Image with Photo Framing -->
-                        <div class="relative aspect-[16/11] bg-[#482820] rounded-[28px] overflow-hidden mb-6 border border-[#482820]/10 brew-photo-frame">
+                        <div class="relative aspect-[16/11] bg-[#482820] rounded-[24px] sm:rounded-[28px] overflow-hidden mb-5 sm:mb-6 border border-[#482820]/10 brew-photo-frame">
                             <img src="{{ $bean->display_image }}" 
                                  alt="{{ $bean->name }}"
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                             
-                            <div class="absolute top-3 left-3 bg-[#482820]/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest text-[#FEBD02] font-semibold border border-white/20">
+                            <div class="absolute top-3 left-3 bg-[#482820]/90 backdrop-blur-md px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-[#FEBD02] font-semibold border border-white/20">
                                 {{ $bean->roast_profile }}
                             </div>
-                            <div class="absolute bottom-3 left-3 text-[11px] font-mono text-[#F8F5F1] bg-[#482820]/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                            <div class="absolute bottom-3 left-3 text-[10px] sm:text-[11px] font-mono text-[#F8F5F1] bg-[#482820]/80 backdrop-blur-md px-2.5 py-0.5 sm:py-1 rounded-full border border-white/10">
                                 {{ $bean->altitude }}
                             </div>
                         </div>
@@ -197,7 +197,7 @@
 
                         <!-- Title: Locked h-14 -->
                         <div class="h-14 line-clamp-2 leading-snug flex items-start mb-2">
-                            <h2 class="font-display text-2xl uppercase tracking-wider text-[#482820]">
+                            <h2 class="font-display text-xl sm:text-2xl uppercase tracking-wider text-[#482820]">
                                 <a href="{{ route('beans.detail', $bean->slug) }}" class="hover:text-[#FEBD02] transition-colors">
                                     {{ $bean->name }}
                                 </a>
@@ -205,8 +205,8 @@
                         </div>
 
                         <!-- Tasting Notes Strip -->
-                        <div class="py-2.5 bg-[#F8F5F1] px-3.5 rounded-2xl border-l-4 border-[#FEBD02] text-xs mb-3 group-hover:bg-[#FEBD02]/10 transition-colors">
-                            <span class="text-[10px] font-mono uppercase text-[#78716c] block font-bold mb-0.5">Catatan Rasa:</span>
+                        <div class="py-2 sm:py-2.5 bg-[#F8F5F1] px-3 sm:px-3.5 rounded-2xl border-l-4 border-[#FEBD02] text-xs mb-3 group-hover:bg-[#FEBD02]/10 transition-colors">
+                            <span class="text-[9px] sm:text-[10px] font-mono uppercase text-[#78716c] block font-bold mb-0.5">Catatan Rasa:</span>
                             <p class="text-[#482820] font-sans font-medium line-clamp-1">
                                 {{ $bean->tasting_notes }}
                             </p>
@@ -219,15 +219,15 @@
                     </div>
 
                     <!-- Card Footer -->
-                    <div class="mt-auto pt-5 border-t border-[#482820]/10 flex items-center justify-between">
+                    <div class="mt-auto pt-4 sm:pt-5 border-t border-[#482820]/10 flex items-center justify-between gap-2">
                         <div>
-                            <span class="text-[10px] font-mono text-[#78716c] uppercase block">200g / 1kg</span>
-                            <span class="font-display text-2xl text-[#482820] leading-none">{{ $bean->formatted_price_200g }}</span>
+                            <span class="text-[9px] sm:text-[10px] font-mono text-[#78716c] uppercase block">200g / 1kg</span>
+                            <span class="font-display text-xl sm:text-2xl text-[#482820] leading-none">{{ $bean->formatted_price_200g }}</span>
                         </div>
                         <a href="{{ route('beans.detail', $bean->slug) }}" 
                            class="btn-brewlab btn-brewlab-dark text-xs">
-                            <span class="btn-brewlab-pill">Profil & Seduh</span>
-                            <span class="btn-brewlab-circle">
+                            <span class="btn-brewlab-pill !py-2 !px-3.5 !text-xs font-mono font-bold tracking-wider">Profil & Seduh</span>
+                            <span class="btn-brewlab-circle !w-8 !h-8 sm:!w-9 sm:!h-9">
                                 <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
                             </span>
                         </a>

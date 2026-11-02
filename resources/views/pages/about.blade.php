@@ -18,7 +18,7 @@
                         Terroir & Heritage
                     </span>
                 </div>
-                <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl uppercase tracking-wider text-[#FFFFFF] leading-[0.95]">
+                <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl uppercase tracking-wider text-[#FFFFFF] leading-tight sm:leading-[0.95]">
                     Tentang Roastery & Filosofi Sangrai
                 </h1>
                 <p class="text-sm text-[#D8C8B8] leading-relaxed font-sans">
@@ -41,10 +41,10 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 
                 <div class="lg:col-span-6 space-y-6" data-reveal="fade-up">
-                    <span class="font-script text-3xl text-[#482820] block -rotate-2">
+                    <span class="font-script text-2xl sm:text-3xl text-[#482820] block -rotate-2">
                         Origin Traceability
                     </span>
-                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl uppercase tracking-wider text-[#482820] leading-[0.95]">
+                    <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl uppercase tracking-wider text-[#482820] leading-tight sm:leading-[0.95]">
                         Hubungan langsung dengan koperasi tani di lima kepulauan.
                     </h2>
                     <p class="text-xs sm:text-sm text-[#78716c] leading-relaxed font-sans">
@@ -56,17 +56,17 @@
                 </div>
 
                 <div class="lg:col-span-6 relative" data-tilt-3d>
-                    <div class="aspect-[4/3] rounded-[40px] overflow-hidden shadow-2xl border border-[#482820]/10 relative brew-photo-frame">
+                    <div class="aspect-[4/3] rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-2xl border border-[#482820]/10 relative brew-photo-frame">
                         <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1200&q=80" 
                              alt="Petik Biji Kopi Nusantara"
                              class="w-full h-full object-cover">
-                        <div class="absolute bottom-6 left-6 bg-[#482820]/90 backdrop-blur-md px-4 py-2 rounded-full text-xs font-mono text-[#FEBD02] font-semibold border border-white/20">
+                        <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 bg-[#482820]/90 backdrop-blur-md px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-mono text-[#FEBD02] font-semibold border border-white/20">
                             Kemitraan Langsung • 100% Panen Petik Merah
                         </div>
                     </div>
 
                     <!-- Motion Graphic Rotating Circular Stamp Badge -->
-                    <div class="absolute -top-4 -right-4 w-24 h-24 sm:w-28 sm:h-28 pointer-events-none drop-shadow-xl animate-spin-slow z-20">
+                    <div class="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 w-20 h-20 sm:w-28 sm:h-28 pointer-events-none drop-shadow-xl animate-spin-slow z-20">
                         <svg viewBox="0 0 100 100" class="w-full h-full text-[#FEBD02]">
                             <defs>
                                 <path id="aboutStampCircle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
@@ -100,15 +100,15 @@
              }">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16 pb-6 border-b border-[#482820]/15" data-reveal="fade-up">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 sm:mb-16 pb-6 border-b border-[#482820]/15" data-reveal="fade-up">
                 <div class="max-w-3xl space-y-3">
-                    <span class="font-script text-3xl sm:text-4xl text-[#482820] block -rotate-2">
+                    <span class="font-script text-2xl sm:text-4xl text-[#482820] block -rotate-2">
                         Presisi Teknis
                     </span>
-                    <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl uppercase tracking-wider text-[#482820] leading-[0.95]">
+                    <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl uppercase tracking-wider text-[#482820] leading-tight sm:leading-[0.95]">
                         Mesin sangrai drum dan kimia air seduh.
                     </h2>
-                    <p class="text-sm sm:text-base text-[#482820]/80 font-sans">
+                    <p class="text-xs sm:text-base text-[#482820]/80 font-sans">
                         Di Kala Sangrai, rasa nikmat bukan kebetulan semata, melainkan hasil perhitungan parameter fisika dan kimia ekstraksi yang konsisten.
                     </p>
                 </div>
@@ -139,16 +139,16 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8" data-reveal="stagger">
                 
                 <!-- Card 1: Giesen W6A with Animated Mechanical Drum SVG -->
-                <div class="bg-[#482820] text-[#F8F5F1] p-8 rounded-[36px] space-y-5 flex flex-col justify-between shadow-xl relative overflow-hidden group">
+                <div class="bg-[#482820] text-[#F8F5F1] p-6 sm:p-8 rounded-[32px] sm:rounded-[36px] space-y-4 sm:space-y-5 flex flex-col justify-between shadow-xl relative overflow-hidden group">
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
-                            <span class="font-display text-2xl text-[#FEBD02] block">01 / PERALATAN SANGRAI</span>
+                            <span class="font-display text-xl sm:text-2xl text-[#FEBD02] block">01 / PERALATAN SANGRAI</span>
                             <!-- Rotating Mechanical Drum Graphic -->
                             <div class="w-10 h-10 rounded-full border-2 border-dashed border-[#FEBD02] flex items-center justify-center animate-spin-slow">
                                 <i data-lucide="rotate-cw" class="w-5 h-5 text-[#FEBD02]"></i>
                             </div>
                         </div>
-                        <h3 class="font-display text-2xl uppercase tracking-wider text-[#FFFFFF]">Giesen W6A Roaster</h3>
+                        <h3 class="font-display text-xl sm:text-2xl uppercase tracking-wider text-[#FFFFFF]">Giesen W6A Roaster</h3>
                         <p class="text-xs sm:text-sm text-[#D8C8B8] leading-relaxed font-sans">
                             Mesin sangrai drum ganda buatan Belanda dengan kontrol aliran udara dan kecepatan drum independen. Memastikan transfer panas konveksi merata hingga ke inti biji kopi tanpa menyengat permukaan kulit luar.
                         </p>
@@ -160,16 +160,16 @@
                 </div>
 
                 <!-- Card 2: Water Chemistry with 140 PPM Dial -->
-                <div class="bg-[#FFFFFF] text-[#482820] p-8 rounded-[36px] space-y-5 flex flex-col justify-between shadow-xl">
+                <div class="bg-[#FFFFFF] text-[#482820] p-6 sm:p-8 rounded-[32px] sm:rounded-[36px] space-y-4 sm:space-y-5 flex flex-col justify-between shadow-xl">
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
-                            <span class="font-display text-2xl text-[#482820] block">02 / STANDAR AIR</span>
+                            <span class="font-display text-xl sm:text-2xl text-[#482820] block">02 / STANDAR AIR</span>
                             <!-- Water Drop Mineral Icon -->
                             <div class="w-10 h-10 rounded-full bg-[#FEBD02]/20 flex items-center justify-center">
                                 <i data-lucide="droplet" class="w-5 h-5 text-[#482820]"></i>
                             </div>
                         </div>
-                        <h3 class="font-display text-2xl uppercase tracking-wider text-[#482820]">Filtrasi Mineral 140 PPM</h3>
+                        <h3 class="font-display text-xl sm:text-2xl uppercase tracking-wider text-[#482820]">Filtrasi Mineral 140 PPM</h3>
                         <p class="text-xs sm:text-sm text-[#78716c] leading-relaxed font-sans">
                             Air seduh diproses melalui Reverse Osmosis dan diremineralisasi khusus dengan magnesium dan kalsium pada rasio seimbang untuk mengikat senyawa aromatik kopi secara optimal.
                         </p>
@@ -181,23 +181,23 @@
                 </div>
 
                 <!-- Card 3: Calibration with Extraction Yield -->
-                <div class="bg-[#482820] text-[#F8F5F1] p-8 rounded-[36px] space-y-5 flex flex-col justify-between shadow-xl">
+                <div class="bg-[#482820] text-[#F8F5F1] p-6 sm:p-8 rounded-[32px] sm:rounded-[36px] space-y-4 sm:space-y-5 flex flex-col justify-between shadow-xl">
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
-                            <span class="font-display text-2xl text-[#FEBD02] block">03 / PENGAWASAN MUTU</span>
+                            <span class="font-display text-xl sm:text-2xl text-[#FEBD02] block">03 / PENGAWASAN MUTU</span>
                             <!-- Gauge Icon -->
                             <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
                                 <i data-lucide="gauge" class="w-5 h-5 text-[#FEBD02]"></i>
                             </div>
                         </div>
-                        <h3 class="font-display text-2xl uppercase tracking-wider text-[#FFFFFF]">Refraktometer & Cupping</h3>
+                        <h3 class="font-display text-xl sm:text-2xl uppercase tracking-wider text-[#FFFFFF]">Refraktometer & Cupping</h3>
                         <p class="text-xs sm:text-sm text-[#D8C8B8] leading-relaxed font-sans">
                             Kami mengukur TDS (Total Dissolved Solids) dan Extraction Yield untuk setiap profil espresso baru, memastikan rentang ekstraksi ideal 19% - 21% terpenuhi setiap hari.
                         </p>
                     </div>
                     <div class="pt-4 border-t border-white/10 text-xs font-mono text-[#FEBD02] flex justify-between">
-                        <span>Rentang Ekstraksi: 19% - 21%</span>
-                        <span>Optical Refractometer</span>
+                        <span>Rentang: 19% - 21%</span>
+                        <span>Refractometer</span>
                     </div>
                 </div>
 
@@ -212,18 +212,18 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
                 <div class="lg:col-span-6" data-tilt-3d>
-                    <div class="aspect-[4/3] rounded-[40px] overflow-hidden shadow-2xl border border-[#482820]/10 brew-photo-frame">
+                    <div class="aspect-[4/3] rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-2xl border border-[#482820]/10 brew-photo-frame">
                         <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=1200&q=80" 
                              alt="Barista Slow Bar Kala Sangrai"
                              class="w-full h-full object-cover">
                     </div>
                 </div>
 
-                <div class="lg:col-span-6 space-y-6">
-                    <span class="font-script text-3xl text-[#482820] block -rotate-2">
+                <div class="lg:col-span-6 space-y-4 sm:space-y-6">
+                    <span class="font-script text-2xl sm:text-3xl text-[#482820] block -rotate-2">
                         Kolektif & Interaksi
                     </span>
-                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl uppercase tracking-wider text-[#482820] leading-[0.95]">
+                    <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl uppercase tracking-wider text-[#482820] leading-tight sm:leading-[0.95]">
                         Di balik meja seduh Kala Sangrai.
                     </h2>
                     <p class="text-xs sm:text-sm text-[#78716c] leading-relaxed font-sans">
@@ -232,8 +232,8 @@
                     <div class="pt-2">
                         <a href="{{ route('atmosphere') }}" 
                            data-magnetic
-                           class="btn-brewlab btn-brewlab-dark">
-                            <span class="btn-brewlab-pill">Eksplorasi Ruang & Bar Kedai</span>
+                           class="btn-brewlab btn-brewlab-dark justify-between sm:justify-start">
+                            <span class="btn-brewlab-pill flex-1 sm:flex-initial text-center">Eksplorasi Ruang & Bar Kedai</span>
                             <span class="btn-brewlab-circle">
                                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             </span>

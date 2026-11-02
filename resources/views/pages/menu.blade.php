@@ -59,11 +59,11 @@
 
             </div>
 
-            <!-- Category Filter Tabs: BrewLab Pill Style -->
-            <div class="mt-10 flex flex-wrap items-center gap-2.5 pt-4 border-t border-white/10 text-xs tracking-wider uppercase font-medium font-mono">
+            <!-- Category Filter Tabs: BrewLab Pill Style (Mobile Horizontal Swipe) -->
+            <div class="mt-8 sm:mt-10 flex overflow-x-auto no-scrollbar sm:flex-wrap items-center gap-2 sm:gap-2.5 pt-4 border-t border-white/10 text-xs tracking-wider uppercase font-medium font-mono pb-1 sm:pb-0">
                 @foreach($categories as $catKey => $catLabel)
                     <a href="{{ route('menu', ['category' => $catKey]) }}"
-                       class="px-4 py-2 rounded-full transition-all {{ $category === $catKey ? 'bg-[#FEBD02] text-[#482820] font-bold shadow-md' : 'bg-white/10 text-[#D8C8B8] hover:text-white hover:bg-white/15' }}">
+                       class="px-3.5 sm:px-4 py-2 rounded-full transition-all shrink-0 {{ $category === $catKey ? 'bg-[#FEBD02] text-[#482820] font-bold shadow-md' : 'bg-white/10 text-[#D8C8B8] hover:text-white hover:bg-white/15' }}">
                         {{ $catLabel }}
                     </a>
                 @endforeach
@@ -108,38 +108,38 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Interactive Secondary Filter Toolbar (Temperature + Search) -->
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-6 border-b border-[#482820]/10">
-                <!-- Temperature Buttons -->
-                <div class="flex flex-wrap items-center gap-2 text-xs font-mono">
-                    <span class="text-[10px] text-[#78716c] uppercase font-bold mr-1">Suhu Saji:</span>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 sm:mb-10 pb-5 sm:pb-6 border-b border-[#482820]/10">
+                <!-- Temperature Buttons (Mobile Swipe Friendly) -->
+                <div class="flex overflow-x-auto no-scrollbar sm:flex-wrap items-center gap-1.5 sm:gap-2 text-xs font-mono pb-1 sm:pb-0">
+                    <span class="text-[10px] text-[#78716c] uppercase font-bold mr-1 shrink-0">Suhu Saji:</span>
                     <button type="button" 
                             @click="tempFilter = 'all'"
                             :class="tempFilter === 'all' ? 'bg-[#482820] text-white' : 'bg-white text-[#482820] hover:bg-[#482820]/5'"
-                            class="px-3.5 py-1.5 rounded-full border border-[#482820]/15 transition-all font-semibold shadow-xs">
+                            class="px-3 sm:px-3.5 py-1.5 rounded-full border border-[#482820]/15 transition-all font-semibold shadow-xs shrink-0">
                         Semua
                     </button>
                     <button type="button" 
                             @click="tempFilter = 'Hot'"
                             :class="tempFilter === 'Hot' ? 'bg-[#482820] text-white' : 'bg-white text-[#482820] hover:bg-[#482820]/5'"
-                            class="px-3.5 py-1.5 rounded-full border border-[#482820]/15 transition-all font-semibold shadow-xs">
+                            class="px-3 sm:px-3.5 py-1.5 rounded-full border border-[#482820]/15 transition-all font-semibold shadow-xs shrink-0">
                         Hot ♨️
                     </button>
                     <button type="button" 
                             @click="tempFilter = 'Iced'"
                             :class="tempFilter === 'Iced' ? 'bg-[#482820] text-white' : 'bg-white text-[#482820] hover:bg-[#482820]/5'"
-                            class="px-3.5 py-1.5 rounded-full border border-[#482820]/15 transition-all font-semibold shadow-xs">
+                            class="px-3 sm:px-3.5 py-1.5 rounded-full border border-[#482820]/15 transition-all font-semibold shadow-xs shrink-0">
                         Iced / Cold ❄️
                     </button>
                     <button type="button" 
                             @click="tempFilter = 'Warm'"
                             :class="tempFilter === 'Warm' ? 'bg-[#482820] text-white' : 'bg-white text-[#482820] hover:bg-[#482820]/5'"
-                            class="px-3.5 py-1.5 rounded-full border border-[#482820]/15 transition-all font-semibold shadow-xs">
+                            class="px-3 sm:px-3.5 py-1.5 rounded-full border border-[#482820]/15 transition-all font-semibold shadow-xs shrink-0">
                         Pastry Hangat 🥐
                     </button>
                 </div>
 
                 <!-- Instant Search Input -->
-                <div class="relative max-w-xs w-full">
+                <div class="relative max-w-full sm:max-w-xs w-full">
                     <input type="text" 
                            x-model="search"
                            placeholder="Cari nama sajian / rasa..."
@@ -149,9 +149,9 @@
             </div>
 
             <!-- Menu Grid with Product Photography (BrewLab Style) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 @forelse($items as $item)
-                <div class="bg-white border border-[#482820]/10 p-6 sm:p-7 flex flex-col justify-between rounded-[40px] hover:border-[#FEBD02] transition-all duration-300 shadow-sm hover:shadow-2xl group"
+                <div class="bg-white border border-[#482820]/10 p-5 sm:p-7 flex flex-col justify-between rounded-[32px] sm:rounded-[40px] hover:border-[#FEBD02] transition-all duration-300 shadow-sm hover:shadow-2xl group"
                      x-show="(tempFilter === 'all' || '{{ $item->serving_temperature }}'.includes(tempFilter)) && ('{{ strtolower($item->name) }}'.includes(search.toLowerCase()) || '{{ strtolower($item->tasting_notes) }}'.includes(search.toLowerCase()))"
                      x-transition:enter="transition ease-out duration-200"
                      x-transition:enter-start="opacity-0 scale-95"
@@ -160,18 +160,18 @@
                     
                     <div>
                         <!-- Product Photography Frame (Rich Visual Media) -->
-                        <div class="relative aspect-[16/11] bg-[#482820] rounded-[28px] overflow-hidden mb-5 border border-[#482820]/10 brew-photo-frame">
+                        <div class="relative aspect-[16/11] bg-[#482820] rounded-[24px] sm:rounded-[28px] overflow-hidden mb-4 sm:mb-5 border border-[#482820]/10 brew-photo-frame">
                             <img src="{{ $item->display_image }}" 
                                  alt="{{ $item->name }}"
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                             
                             <!-- Category Badge on Photo -->
-                            <div class="absolute top-3.5 left-3.5 bg-[#482820]/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest text-[#FEBD02] font-semibold border border-white/20">
+                            <div class="absolute top-3 left-3 sm:top-3.5 sm:left-3.5 bg-[#482820]/90 backdrop-blur-md px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-[#FEBD02] font-semibold border border-white/20">
                                 {{ $item->category_label }}
                             </div>
 
                             <!-- Serving Temperature Pill -->
-                            <div class="absolute bottom-3.5 right-3.5 text-[10px] font-mono text-[#F8F5F1] bg-[#482820]/85 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 flex items-center gap-1.5">
+                            <div class="absolute bottom-3 right-3 sm:bottom-3.5 sm:right-3.5 text-[9px] sm:text-[10px] font-mono text-[#F8F5F1] bg-[#482820]/85 backdrop-blur-md px-2.5 py-0.5 sm:py-1 rounded-full border border-white/10 flex items-center gap-1.5">
                                 @if(str_contains(strtolower($item->serving_temperature), 'hot'))
                                     <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
                                 @elseif(str_contains(strtolower($item->serving_temperature), 'cold') || str_contains(strtolower($item->serving_temperature), 'iced'))
@@ -185,22 +185,22 @@
 
                         <!-- Title -->
                         <div class="h-14 line-clamp-2 leading-snug flex items-start mb-2">
-                            <h2 class="font-display text-2xl uppercase tracking-wider text-[#482820] group-hover:text-[#482820]">
+                            <h2 class="font-display text-xl sm:text-2xl uppercase tracking-wider text-[#482820]">
                                 {{ $item->name }}
                             </h2>
                         </div>
 
                         <!-- Tasting Notes Strip with Hover Expansion -->
                         @if($item->tasting_notes)
-                        <div class="py-2.5 bg-[#F8F5F1] px-3.5 rounded-2xl border-l-4 border-[#FEBD02] text-xs mb-3 transition-colors group-hover:bg-[#FEBD02]/10">
-                            <span class="text-[10px] font-mono uppercase text-[#78716c] block font-bold mb-0.5">Karakter Rasa:</span>
+                        <div class="py-2 sm:py-2.5 bg-[#F8F5F1] px-3 sm:px-3.5 rounded-2xl border-l-4 border-[#FEBD02] text-xs mb-3 transition-colors group-hover:bg-[#FEBD02]/10">
+                            <span class="text-[9px] sm:text-[10px] font-mono uppercase text-[#78716c] block font-bold mb-0.5">Karakter Rasa:</span>
                             <p class="text-[#482820] font-sans font-medium line-clamp-1">
                                 {{ $item->tasting_notes }}
                             </p>
                         </div>
                         @else
-                        <div class="py-2.5 bg-[#F8F5F1] px-3.5 rounded-2xl border-l-4 border-[#482820]/20 text-xs mb-3">
-                            <span class="text-[10px] font-mono uppercase text-[#78716c] block font-bold mb-0.5">Penyajian:</span>
+                        <div class="py-2 sm:py-2.5 bg-[#F8F5F1] px-3 sm:px-3.5 rounded-2xl border-l-4 border-[#482820]/20 text-xs mb-3">
+                            <span class="text-[9px] sm:text-[10px] font-mono uppercase text-[#78716c] block font-bold mb-0.5">Penyajian:</span>
                             <p class="text-[#78716c] font-sans font-medium line-clamp-1">
                                 Dipanggang / Disajikan Segar
                             </p>
@@ -213,17 +213,17 @@
                         </p>
                     </div>
 
-                    <!-- Footer Action -->
-                    <div class="mt-auto pt-5 border-t border-[#482820]/10 flex items-center justify-between">
+                    <!-- Footer Action (Mobile Safe) -->
+                    <div class="mt-auto pt-4 sm:pt-5 border-t border-[#482820]/10 flex items-center justify-between gap-2">
                         <div>
-                            <span class="text-[10px] font-mono text-[#78716c] uppercase block">Harga Saji</span>
-                            <span class="font-display text-2xl text-[#482820] leading-none">{{ $item->formatted_price }}</span>
+                            <span class="text-[9px] sm:text-[10px] font-mono text-[#78716c] uppercase block">Harga Saji</span>
+                            <span class="font-display text-xl sm:text-2xl text-[#482820] leading-none">{{ $item->formatted_price }}</span>
                         </div>
                         <button type="button"
                                 @click="activeCustom = { name: '{{ addslashes($item->name) }}', price: {{ $item->price }}, category: '{{ $item->category }}', image: '{{ $item->display_image }}' }; oatMilk = false; extraShot = false"
                                 class="btn-brewlab btn-brewlab-dark text-xs">
-                            <span class="btn-brewlab-pill">Pesan / Racik</span>
-                            <span class="btn-brewlab-circle">
+                            <span class="btn-brewlab-pill !py-2 !px-3 sm:!px-4 !text-xs font-mono font-bold tracking-wider">Pesan / Racik</span>
+                            <span class="btn-brewlab-circle !w-8 !h-8 sm:!w-9 sm:!h-9">
                                 <i data-lucide="sliders-horizontal" class="w-3.5 h-3.5"></i>
                             </span>
                         </button>
@@ -267,14 +267,14 @@
                  style="display: none;">
                 
                 <div @click.away="activeCustom = null" 
-                     class="max-w-md w-full bg-white rounded-[36px] p-6 sm:p-8 space-y-6 relative shadow-2xl border border-[#482820]/10">
+                     class="max-w-md w-full max-h-[90vh] overflow-y-auto bg-white rounded-[32px] sm:rounded-[36px] p-5 sm:p-8 space-y-5 sm:space-y-6 relative shadow-2xl border border-[#482820]/10">
                     
                     <div class="flex items-start justify-between border-b border-[#482820]/10 pb-4">
                         <div class="flex items-center gap-3">
-                            <img :src="activeCustom?.image" class="w-14 h-14 rounded-2xl object-cover border border-[#482820]/10">
+                            <img :src="activeCustom?.image" class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-cover border border-[#482820]/10">
                             <div>
-                                <span class="text-[10px] font-mono text-[#FEBD02] uppercase tracking-wider font-bold bg-[#482820] px-2.5 py-0.5 rounded-full">Kustomisasi Pesanan</span>
-                                <h3 class="font-display text-2xl uppercase tracking-wider text-[#482820] mt-1" x-text="activeCustom?.name"></h3>
+                                <span class="text-[9px] sm:text-[10px] font-mono text-[#FEBD02] uppercase tracking-wider font-bold bg-[#482820] px-2.5 py-0.5 rounded-full">Kustomisasi Pesanan</span>
+                                <h3 class="font-display text-xl sm:text-2xl uppercase tracking-wider text-[#482820] mt-1 leading-tight" x-text="activeCustom?.name"></h3>
                             </div>
                         </div>
                         <button @click="activeCustom = null" 

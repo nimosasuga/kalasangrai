@@ -20,7 +20,7 @@
                             Visit Our Bar
                         </span>
                     </div>
-                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl uppercase tracking-wider text-[#FFFFFF] leading-[0.95]">
+                    <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl uppercase tracking-wider text-[#FFFFFF] leading-tight sm:leading-[0.95]">
                         Lokasi, jam seduh, dan sapaan barista.
                     </h1>
                     <p class="text-sm text-[#D8C8B8] leading-relaxed font-sans max-w-2xl">
@@ -131,29 +131,29 @@
                     </div>
 
                     <!-- Interactive Transportation Tabs -->
-                    <div class="bg-white border border-[#482820]/10 rounded-[32px] p-6 space-y-4 shadow-sm">
+                    <div class="bg-white border border-[#482820]/10 rounded-[32px] p-5 sm:p-6 space-y-4 shadow-sm">
                         <div class="flex items-center justify-between">
                             <span class="text-[10px] font-mono text-[#482820] uppercase block font-bold">Navigasi Akses Kedai</span>
                             <span class="text-[10px] font-mono text-[#FEBD02] bg-[#482820] px-2.5 py-0.5 rounded-full font-bold" x-text="transitData[activeTransit].time"></span>
                         </div>
 
-                        <div class="flex items-center gap-2 text-xs font-mono">
+                        <div class="flex items-center gap-1.5 sm:gap-2 text-xs font-mono overflow-x-auto no-scrollbar">
                             <button type="button" 
                                     @click="activeTransit = 'mrt'"
                                     :class="activeTransit === 'mrt' ? 'bg-[#482820] text-white font-bold' : 'bg-[#F8F5F1] text-[#482820]'"
-                                    class="px-3 py-1.5 rounded-full transition-all flex-1 text-center">
+                                    class="px-3 py-2 rounded-full transition-all flex-1 text-center shrink-0 min-h-[36px]">
                                 MRT
                             </button>
                             <button type="button" 
                                     @click="activeTransit = 'tj'"
                                     :class="activeTransit === 'tj' ? 'bg-[#482820] text-white font-bold' : 'bg-[#F8F5F1] text-[#482820]'"
-                                    class="px-3 py-1.5 rounded-full transition-all flex-1 text-center">
+                                    class="px-3 py-2 rounded-full transition-all flex-1 text-center shrink-0 min-h-[36px]">
                                 Busway
                             </button>
                             <button type="button" 
                                     @click="activeTransit = 'car'"
                                     :class="activeTransit === 'car' ? 'bg-[#482820] text-white font-bold' : 'bg-[#F8F5F1] text-[#482820]'"
-                                    class="px-3 py-1.5 rounded-full transition-all flex-1 text-center">
+                                    class="px-3 py-2 rounded-full transition-all flex-1 text-center shrink-0 min-h-[36px]">
                                 Parkir
                             </button>
                         </div>
@@ -168,10 +168,10 @@
                 <!-- Right: Guest Message Form (7 Cols) -->
                 <div class="lg:col-span-7">
                     
-                    <div class="bg-white border border-[#482820]/10 rounded-[40px] p-8 sm:p-10 space-y-6 shadow-xl">
+                    <div class="bg-white border border-[#482820]/10 rounded-[32px] sm:rounded-[40px] p-5 sm:p-10 space-y-6 shadow-xl">
                         
                         <div class="border-b border-[#482820]/10 pb-4">
-                            <h2 class="font-display text-3xl uppercase tracking-wider text-[#482820]">
+                            <h2 class="font-display text-2xl sm:text-3xl uppercase tracking-wider text-[#482820]">
                                 Kirim Pesan atau Pertanyaan
                             </h2>
                             <p class="text-xs text-[#78716c] mt-1 font-sans">
