@@ -730,6 +730,35 @@ updated: 2026-10-31
   - `demo-coffee-shop-roastery/resources/views/layouts/app.blade.php`
 - **Langkah berikutnya**: Melaporkan perbaikan tampilan kepada user dalam gaya Caveman.
 
+### 2026-11-02 — Pembaruan Nomor Kontak Resmi (085133331476 & 085133331467)
+- **Status**: final
+- **Area**: config | contact | local | github | vercel | sector
+- **Keputusan**:
+  1. **Konfigurasi Lokal (`config/site.php`, `.env`, `.env.example`)**:
+     - Mengubah nomor kontak resmi utama ke `085133331476` (Phone: `+62 851-3333-1476`, WhatsApp: `6285133331476`).
+     - Menyediakan nomor kontak hotline alternatif `085133331467` (Phone Alt: `+62 851-3333-1467`, WhatsApp Alt: `6285133331467`).
+  2. **Pembaruan Tampilan Blade Components**:
+     - `resources/views/components/floating-whatsapp.blade.php`: Fallback nomor WhatsApp diperbarui ke `6285133331476`.
+     - `resources/views/pages/contact.blade.php`: Menampilkan WhatsApp Bar & Reservasi (`+62 851-3333-1476`) serta Hotline Alternatif / Roastery (`+62 851-3333-1467`).
+     - `resources/views/components/footer.blade.php`: Menampilkan kedua nomor kontak.
+  3. **Konfigurasi Vercel Serverless (`vercel.json`)**:
+     - Menambahkan variabel lingkungan `SITE_PHONE`, `SITE_WHATSAPP`, `SITE_PHONE_ALT`, dan `SITE_WHATSAPP_ALT` ke dalam blok `"env"` di `vercel.json`.
+  4. **Sinkronisasi Git & Push ke GitHub**:
+     - Build Vite sukses (`app-DVtT14ro.css`, `app-BT3D_vsh.js`).
+     - Commit `99ce1a1` (`feat(contact): update official contact numbers to 085133331476 and 085133331467`) berhasil dipush ke branch `main` repositori `https://github.com/nimosasuga/kalasangrai.git`.
+- **Alasan**: Memenuhi instruksi user: "Sekarang ganti contact nya ke nomor 085133331476 atau 085133331467. terapkan di lokal, github dan vercel /vercel-cli".
+- **Dampak**: Seluruh kanal komunikasi (Floating WhatsApp, Halaman Kontak, Footer, dan SEO schema) kini mengarah ke nomor telepon resmi baru.
+- **File/dokumen yang diperbarui**:
+  - `EXPROSA-OBSIDIAN-MEMORY.md`
+  - `demo-coffee-shop-roastery/config/site.php`
+  - `demo-coffee-shop-roastery/.env`
+  - `demo-coffee-shop-roastery/.env.example`
+  - `demo-coffee-shop-roastery/vercel.json`
+  - `demo-coffee-shop-roastery/resources/views/components/floating-whatsapp.blade.php`
+  - `demo-coffee-shop-roastery/resources/views/pages/contact.blade.php`
+  - `demo-coffee-shop-roastery/resources/views/components/footer.blade.php`
+- **Langkah berikutnya**: Menampilkan card autentikasi Vercel agar user dapat sign in untuk sinkronisasi Vercel CLI / deployment trigger.
+
 
 
 
